@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Edukator.EntityLayer.Concrete
 {
-    public class Category
+    public class Map
     {
-        public int CategoryID { get; set; }
+        public int MapId { get; set; }
+        public string Name { get; set; }
+        public string MapUrl { get; set; }
 
-        public string CategoryName { get; set; }
-
-        public List<Course> Courses { get; set; }
     }
 }
