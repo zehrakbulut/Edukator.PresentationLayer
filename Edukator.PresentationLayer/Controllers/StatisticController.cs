@@ -20,7 +20,7 @@ namespace Edukator.PresentationLayer.Controllers
 
             ViewBag.avgReview = context.Courses.Average(x => x.Review);
             ViewBag.getOver30Price = context.Courses.Where(x => x.Price > 30).Count();
-            ViewBag.lastCoursePrice = context.Courses.Where(x => x.CourseID == 6).Select(y => y.Price).FirstOrDefault();
+            ViewBag.lastCoursePrice = context.Courses.Where(x => x.CourseID == 5).Select(y => y.Price).FirstOrDefault();
             ViewBag.getTitleByCourseID2 = context.Courses.Where(x => x.CategoryID == 2).Select(y => y.Title).FirstOrDefault();
 
 
@@ -30,7 +30,7 @@ namespace Edukator.PresentationLayer.Controllers
             ViewBag.mostExpensiveCourse = context.Courses.Where(x => x.Price == (context.Courses.Max(y => y.Price))).Select(z => z.Title).FirstOrDefault();
 
 
-            ViewBag.lastCourseTitle = context.Courses.Where(x => x.CategoryID == (context.Courses.Max(y => y.CourseID))).Select(z => z.Title).FirstOrDefault();
+            ViewBag.lastCourseTitle = context.Courses.Where(x => x.CourseID == (context.Courses.Max(y => y.CourseID))).Select(z => z.Title).FirstOrDefault();
             ViewBag.avgPriceForSoftwareCourse = context.Courses.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Yazılım").Select(z => z.CategoryID).FirstOrDefault())).Average(w => w.Price);
             ViewBag.last3CourseTotalPrice = context.Courses.OrderByDescending(x => x.CourseID).Take(3).Sum(y => y.Price);
             ViewBag.getCourseCategorySoftwareAndReviewMore9Score = context.Courses.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Yazılım").Select(z => z.CategoryID).FirstOrDefault()) && x.Review >= 9).Select(w => w.Title).FirstOrDefault();
