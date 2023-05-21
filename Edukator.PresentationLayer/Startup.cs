@@ -4,6 +4,7 @@ using Edukator.DataAccessLayer.Abstract;
 using Edukator.DataAccessLayer.Concrete;
 using Edukator.DataAccessLayer.EntityFramework;
 using Edukator.EntityLayer.Concrete;
+using Edukator.PresentationLayer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,7 +40,22 @@ namespace Edukator.PresentationLayer
             services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
 
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
+            services.AddScoped<IFeatureService, FeatureManager>();
+
+            services.AddScoped<IAboutGridDal, EfGridAboutDal>();
+            services.AddScoped<IAboutGridService, AboutGridManager>();
+
+            services.AddScoped<IMailSubscribeDal, EfMailSubscribeDal>();
+            services.AddScoped<IMailSubscribeService, MailSubscribeManager>();
+
+            services.AddScoped<ICourseRegisterDal, EfCourseRegisterDal>();
+            services.AddScoped<ICourseRegisterService, CourseRegisterManager>();
+
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 
             services.AddControllersWithViews();
         }
@@ -61,7 +77,7 @@ namespace Edukator.PresentationLayer
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -69,6 +85,14 @@ namespace Edukator.PresentationLayer
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }

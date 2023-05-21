@@ -1,4 +1,8 @@
 ﻿
+@{ 
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +17,7 @@
 
         <div class="content">
 
-            @await Html.PartialAsync("PartialNavbar.cshtml")
+            @await Html.PartialAsync("PartialNavbar.cshtml")    
 
             <div class="container-fluid pt-4 px-4">
                         @RenderBody()

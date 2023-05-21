@@ -24,5 +24,6 @@ namespace Edukator.EntityLayer.Concrete
 
         public Category Category { get; set; }
 
+        public List<CourseRegister> CourseRegisters { get; set; }
     }
 }

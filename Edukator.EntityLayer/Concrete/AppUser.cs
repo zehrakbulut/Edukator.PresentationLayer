@@ -11,10 +11,15 @@ namespace Edukator.EntityLayer.Concrete
     public class AppUser:IdentityUser<int>
     {
         public string Name { get; set; }
+
         public string Surname { get; set; }
+
         public string City { get; set; }
 
         [StringLength(100)]
+
         public string ImageUrl { get; set; }
+
+        public List<CourseRegister> CourseRegisters { get; set; }
     }
 }

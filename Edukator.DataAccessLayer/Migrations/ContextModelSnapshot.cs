@@ -19,6 +19,27 @@ namespace Edukator.DataAccessLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.AboutGrid", b =>
+                {
+                    b.Property<int>("AboutGridID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutGridID");
+
+                    b.ToTable("AboutGrids");
+                });
+
             modelBuilder.Entity("Edukator.EntityLayer.Concrete.AppRole", b =>
                 {
                     b.Property<int>("Id")
@@ -232,6 +253,64 @@ namespace Edukator.DataAccessLayer.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.CourseRegister", b =>
+                {
+                    b.Property<int>("CourseRegisterID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CourseRegisterID");
+
+                    b.HasIndex("AppUserID");
+
+                    b.HasIndex("CourseID");
+
+                    b.ToTable("CourseRegisters");
+                });
+
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.Feature", b =>
+                {
+                    b.Property<int>("FeatureID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VideoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FeatureID");
+
+                    b.ToTable("Features");
+                });
+
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.MailSubscribe", b =>
+                {
+                    b.Property<int>("MailSubscribeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MailSubscribeID");
+
+                    b.ToTable("MailSubscribes");
+                });
+
             modelBuilder.Entity("Edukator.EntityLayer.Concrete.Map", b =>
                 {
                     b.Property<int>("MapId")
@@ -443,6 +522,25 @@ namespace Edukator.DataAccessLayer.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.CourseRegister", b =>
+                {
+                    b.HasOne("Edukator.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany("CourseRegisters")
+                        .HasForeignKey("AppUserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Edukator.EntityLayer.Concrete.Course", "Course")
+                        .WithMany("CourseRegisters")
+                        .HasForeignKey("CourseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Edukator.EntityLayer.Concrete.AppRole", null)
@@ -494,9 +592,19 @@ namespace Edukator.DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("CourseRegisters");
+                });
+
             modelBuilder.Entity("Edukator.EntityLayer.Concrete.Category", b =>
                 {
                     b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.Course", b =>
+                {
+                    b.Navigation("CourseRegisters");
                 });
 #pragma warning restore 612, 618
         }
