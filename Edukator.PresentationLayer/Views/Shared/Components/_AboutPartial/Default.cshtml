@@ -1,13 +1,17 @@
-﻿<section class="w3l-homeblock1" id="about">
+﻿@model List<Edukator.EntityLayer.Concrete.About>
+
+@foreach (var item in Model)
+{
+<section class="w3l-homeblock1" id="about">
     <div class="midd-w3 py-5">
         <div class="container py-lg-5 py-md-3">
             <div class="row cwp23-grids align-items-center">
                 <div class="col-lg-6">
                     <h5 class="title-subw3hny">Hakkımızda</h5>
-                    <h3 class="title-w3l">Alanında en popüler kurslar <br /><span class="inn-text">bir tık uzakta</span></h3>
+                    <h3 class="title-w3l">@item.Title1  <br /><span class="inn-text">@item.Title2</span></h3>
                     <h6 class="mt-md-4 mt-md-5 mt-4">
-                        Kariyerini planlamaya ne dersin? 
-                        <br />Hadi başlayalım
+                        @item.Description1
+                        <br />@item.Description2
                     </h6>
                     <a href="about.html" class="btn btn-style btn-primary mt-lg-5 mt-4">Kursları Keşfet</a>
                 </div>
@@ -20,7 +24,7 @@
                                          class="radius-image img-fluid">
                                 </a>
                                 <div class="edu-info">
-                                    <h4 class="edu-heading-title"><a href="#">Yazılım Kursları</a></h4>
+                                    <h4 class="edu-heading-title"><a href="#">@item.ImgTest1</a></h4>
                                 </div>
                             </div>
                             <div class="column-w3-img position-relative mt-4">
@@ -29,7 +33,7 @@
                                          class="radius-image img-fluid">
                                 </a>
                                 <div class="edu-info">
-                                    <h4 class="edu-heading-title"><a href="#">İş & Analiz</a></h4>
+                                    <h4 class="edu-heading-title"><a href="#">@item.ImgTest2</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +44,7 @@
                                          class="radius-image img-fluid">
                                 </a>
                                 <div class="edu-info">
-                                    <h4 class="edu-heading-title"><a href="#">Girişimcilik</a></h4>
+                                    <h4 class="edu-heading-title"><a href="#">@item.ImgTest3</a></h4>
                                 </div>
                             </div>
                             <div class="column-w3-img position-relative mt-4">
@@ -49,7 +53,7 @@
                                          class="radius-image img-fluid">
                                 </a>
                                 <div class="edu-info">
-                                    <h4 class="edu-heading-title"><a href="#">Fotoğrafçılık</a></h4>
+                                    <h4 class="edu-heading-title"><a href="#">@item.ImgTest4</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -59,3 +63,4 @@
         </div>
     </div>
 </section>
+}
