@@ -30,7 +30,8 @@ namespace Edukator.PresentationLayer.Controllers
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "MyCourse", new { area = "Member" });
+                return RedirectToAction("Index", "Dashboard");
+               // return RedirectToAction("Index", "MyCourse", new { area = "Member" });
             }    
             return View();
         }

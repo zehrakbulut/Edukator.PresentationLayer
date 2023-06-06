@@ -1,8 +1,8 @@
-﻿@model List<Edukator.EntityLayer.Concrete.Feature>
+﻿@model List<Feature>
 
 <section class="bannerw3l-hnyv">
-    @foreach(var item in Model)
-            {
+    @foreach (var item in Model)
+    {
     <div class="banner-layer">
         <video autoplay muted loop id="myVideo">
             <source src="@item.VideoUrl" type="video/mp4">

@@ -19,8 +19,12 @@ namespace Edukator.EntityLayer.Concrete
         public decimal Price { get; set; }
 
         public int Review { get; set; }
+        
+
 
         public int CategoryID { get; set; }
+
+
 
         public Category Category { get; set; }
 

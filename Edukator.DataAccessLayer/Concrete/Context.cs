@@ -13,7 +13,7 @@ namespace Edukator.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-51V7O1A;initial catalog=DbEdukator;integrated security=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-51V7O1A;initial catalog=DbEdukatorNew;integrated security=true;");
         }
 
         public DbSet<Course> Courses { get; set; }
@@ -43,5 +43,8 @@ namespace Edukator.DataAccessLayer.Concrete
         public DbSet<CourseRegister>CourseRegisters { get; set; }
 
         public DbSet<About> Abouts { get; set; }
+
+        public DbSet<Testimonial> Testimonials { get; set; }
+
     }
 }

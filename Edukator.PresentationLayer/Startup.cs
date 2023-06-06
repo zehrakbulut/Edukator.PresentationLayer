@@ -58,6 +58,9 @@ namespace Edukator.PresentationLayer
             services.AddScoped<IAboutDal, EfAboutDal>();
             services.AddScoped<IAboutService, AboutManager>();
 
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 
 
@@ -89,7 +92,7 @@ namespace Edukator.PresentationLayer
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Default56}/{action=Index}/{id?}");
+                    pattern: "{controller=Default}/{action=Index}/{id?}");
             });
 
             app.UseEndpoints(endpoints =>

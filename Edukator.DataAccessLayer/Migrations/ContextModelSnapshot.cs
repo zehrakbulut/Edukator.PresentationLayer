@@ -458,6 +458,27 @@ namespace Edukator.DataAccessLayer.Migrations
                     b.ToTable("Subscribes");
                 });
 
+            modelBuilder.Entity("Edukator.EntityLayer.Concrete.Testimonial", b =>
+                {
+                    b.Property<int>("TestimonialID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TestimonialID");
+
+                    b.ToTable("Testimonials");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
