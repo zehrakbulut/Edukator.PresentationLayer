@@ -9,5 +9,6 @@ namespace Edukator.BusinessLayer.Abstract
 {
     public interface IAboutGridService:IGenericService<AboutGrid>
     {
+        List<AboutGrid> TGet3AboutGrid();
     }
 }

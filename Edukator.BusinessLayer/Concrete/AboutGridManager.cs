@@ -23,6 +23,11 @@ namespace Edukator.BusinessLayer.Concrete
             _aboutGridDal.Delete(t);
         }
 
+        public List<AboutGrid> TGet3AboutGrid()
+        {
+            return _aboutGridDal.Get3AboutGrid();
+        }
+
         public AboutGrid TGetByID(int id)
         {
             return _aboutGridDal.GetByID(id);

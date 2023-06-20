@@ -1,0 +1,19 @@
+﻿@{ ViewData["Title"] = "Index";
+   Layout = "~/Views/Shared/_ContactLayout.cshtml"; }
+
+@await Component.InvokeAsync("_ContactAboutPartial") 
+<!--//breadcrumb-->
+<!-- contacts-5-grid -->
+
+<div class="w3l-contact-10 py-5" id="contact">
+    <div class="form-41-mian pt-lg-4 pt-md-3 pb-lg-4">
+        <div class="container">
+            @await Component.InvokeAsync("_ContactContactPartial")
+
+            @await Component.InvokeAsync("_ContactConnectionPartial")
+        </div>
+    </div>
+    <!-- //contacts-5-grid -->
+</div>
+
+@await Component.InvokeAsync("_ContactMapPartial") 

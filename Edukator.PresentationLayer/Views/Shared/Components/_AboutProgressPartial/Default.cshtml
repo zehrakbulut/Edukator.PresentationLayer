@@ -1,0 +1,56 @@
+﻿@model List<Edukator.EntityLayer.Concrete.Progress>
+
+<section class="w3l-servicesblock w3l-servicesblock1 py-5" id="progress">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="row">
+                <div class="col-lg-6 align-self pr-lg-4">
+                <div class="progress-info info1">
+                    <h6 class="progress-tittle">@ViewBag.CourseName1 <span class="">@ViewBag.CoursePercent1%</span></h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:@ViewBag.CoursePercent1%" aria-valuenow="90"
+                             aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-info info2">
+                    <h6 class="progress-tittle">
+                        @ViewBag.CourseName2 <span class="">@ViewBag.CoursePercent2%</span>
+                    </h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @ViewBag.CoursePercent2%" aria-valuenow="95"
+                             aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-info info3">
+                    <h6 class="progress-tittle">@ViewBag.CourseName3 <span class="">@ViewBag.CoursePercent3%</span></h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @ViewBag.CoursePercent3%" aria-valuenow="95"
+                             aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-info info4">
+                    <h6 class="progress-tittle">@ViewBag.CourseName4 <span class="">@ViewBag.CoursePercent4%</span></h6>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @ViewBag.CoursePercent4%" aria-valuenow="95"
+                             aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            @foreach (var item in Model)
+            {
+            <div class="col-lg-6 mt-lg-0 mt-5 pl-lg-5">
+                <h5 class="title-subw3hny mb-1">@item.Title1</h5>
+                <h3 class="title-w3l">@item.Title2 <span class="inn-text">@item.Title3</span></h3>
+                <p class="mt-md-4 mt-3">
+                    @item.Description
+                </p>
+
+            </div>
+            }
+        </div>
+    </div>
+</section>

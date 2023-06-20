@@ -61,6 +61,18 @@ namespace Edukator.PresentationLayer
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
             services.AddScoped<ITestimonialService, TestimonialManager>();
 
+            services.AddScoped<ITeamDal, EfTeamDal>();
+            services.AddScoped<ITeamService, TeamManager>();
+
+            services.AddScoped<IProgressDal, EfProgressDal>();
+            services.AddScoped<IProgressService, ProgressManager>();
+
+            services.AddScoped<IJoinDal, EfJoinDal>();
+            services.AddScoped<IJoinService, JoinManager>();
+
+            services.AddScoped<IContactInfoDal, EfContactInfoDal>();
+            services.AddScoped<IContactInfoService, ContactInfoManager>();
+
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 
 

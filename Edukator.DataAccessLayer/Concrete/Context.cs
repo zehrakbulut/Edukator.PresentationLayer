@@ -46,5 +46,11 @@ namespace Edukator.DataAccessLayer.Concrete
 
         public DbSet<Testimonial> Testimonials { get; set; }
 
+        public DbSet<Team> Teams { get; set; }
+
+        public DbSet<Progress> Progresses { get; set; }
+
+        public DbSet<Join> Joins { get; set; }
+
     }
 }

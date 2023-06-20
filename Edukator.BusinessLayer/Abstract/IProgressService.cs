@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Edukator.DataAccessLayer.Abstract
+namespace Edukator.BusinessLayer.Abstract
 {
-    public interface IAboutGridDal:IGenericDal<AboutGrid>
+    public interface IProgressService:IGenericService<Progress>
     {
-        List<AboutGrid> Get3AboutGrid();
     }
 }

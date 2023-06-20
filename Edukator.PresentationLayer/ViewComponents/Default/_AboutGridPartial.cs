@@ -18,7 +18,7 @@ namespace Edukator.PresentationLayer.ViewComponents.Default
 
         public IViewComponentResult Invoke()
         {
-            var values = _aboutGridService.TGetList();
+            var values = _aboutGridService.TGet3AboutGrid();
             return View(values);
         }
     }

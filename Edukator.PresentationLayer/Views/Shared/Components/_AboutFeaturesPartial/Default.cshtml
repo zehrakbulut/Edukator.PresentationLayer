@@ -1,0 +1,53 @@
+﻿@model List<Edukator.EntityLayer.Concrete.About>
+
+
+<section class="w3l-features py-5" id="work">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="row main-cont-wthree-2 align-items-center">
+            @foreach (var item in Model)
+            {
+            <div class="col-lg-6 feature-grid-left pr-lg-5">
+                <h5 class="title-subw3hny">Neden Bizi Seçmelisiniz </h5>
+                <h3 class="title-w3l mb-4">
+                    @item.Title1 <span class="inn-text">@item.Title2</span>
+                </h3>
+                <p class="text-para">
+                    @item.Description1
+                </p>
+                <p class="text-para">
+                    @item.Description2
+                </p>
+                <a href="about.html" class="btn btn-style btn-primary mt-lg-5 mt-4">Devamını Oku</a>
+            </div>
+            }
+            <div class="col-lg-6 feature-grid-right mt-lg-0 mt-5 pl-lg-5">
+                <div class="call-grids-w3 d-grid">
+                    <div class="grids-1 box-wrap">
+                        <div class="icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4><a href="about.html" class="title-head">Seminerler</a></h4>
+                    </div>
+                    <div class="grids-1 box-wrap">
+                        <div class="icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4><a href="about.html" class="title-head">Popüler Kurslar</a></h4>
+                    </div>
+                    <div class="grids-1 box-wrap">
+                        <div class="icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h4><a href="about.html" class="title-head">Kütüphane</a></h4>
+                    </div>
+                    <div class="grids-1 box-wrap">
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4><a href="about.html" class="title-head">Uzman Öğretmenler</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Edukator.DataAccessLayer.Abstract
 {
-    public interface IAboutGridDal:IGenericDal<AboutGrid>
+    public interface IProgressDal:IGenericDal<Progress>
     {
-        List<AboutGrid> Get3AboutGrid();
     }
 }
